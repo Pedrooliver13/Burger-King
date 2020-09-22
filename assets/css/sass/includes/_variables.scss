@@ -1,0 +1,59 @@
+@font-face {
+  font-family: "berthold";
+  src: url("../font/Block\ Berthold\ BQ\ Regular.otf");
+}
+
+@font-face {
+  font-family: 'berthold';
+  src: url('../font/block-berthold-regular.ttf');
+}
+
+:root {
+  // Cores
+  --red: #EE1D23;
+  --blue: #185494;
+  --yellow: #FAAF18;
+  --brown: #59291C;
+  --light-brown: #5D2A1C;
+  --orange: #ED7902;
+  --white: #EFE1DA;
+  --gray: #444242;
+  --dark-green: #4B8901;
+  --light-green: #69B33A;
+
+  // Fontes
+  --font-1: "berthold";
+  --font-2: "Aref Ruqaa", serif;
+
+  // font
+  --font-normal: 1.125em;
+  --font-sm: 0.875em;
+  --font-md: 1.5rem;
+  --font-lg: 2em;
+  --font-xl: 3.25em;
+
+  --line-height-normal: 1.94;
+  --line-height-md: 36px;
+  --line-height-lg: 62px;
+
+  --letter-spacing: -0.652006px;
+
+  // grid columns
+  --page-max-width: 1180px;
+  --num-grid-columns: 12;
+
+  @include mediaQuery(lg) {
+    --page-max-width: 960px;
+    --num-grid-columns: 8;
+  }
+
+  @include mediaQuery(md) {
+    --page-max-width: 720px;
+    --num-grid-columns: 4;
+  }
+
+  @include mediaQuery(sm) {
+    --page-max-width: 540px;
+    --num-grid-columns: 4;
+  }
+}

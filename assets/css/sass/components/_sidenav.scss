@@ -1,0 +1,166 @@
+.sidenav {
+  position: relative;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 24px 8px;
+  
+  margin-top: 24px;
+  margin-bottom: 24px;
+  
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+
+  @extend .container;
+
+  @include mediaQuery(xl) {
+    &::after {
+      content: "→";
+      position: absolute;
+  
+      // z-index: 100;
+  
+      top: -10px;
+      right: 20px;
+  
+      font-size: 1.5em;
+      font-weight: bold;
+      color: var(--secondary);
+  
+      animation: sidenav .5s alternate 0s infinite;
+    }
+    @keyframes sidenav {
+      from {
+        right: 30px;
+      }
+      to {
+        right: 20px;
+      }
+    } 
+  }
+
+  &__item {
+    position: relative;
+    padding: 0 62px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    margin-right: 4px;
+
+    width: 219px;
+    height: 144px;
+
+    background-color: var(--white);
+    color: var(--brown);
+    border-radius: 12px;
+
+    text-transform: uppercase;
+    font-family: var(--font-1);
+    font-size: var(--font-md);
+
+    transition: all .5s ease-in-out;
+
+    &.highlight {
+      text-align: center;
+      
+      width: 263px;
+      margin-right:12px;
+  
+      background: url("../img/stars.svg") no-repeat center 18px;
+      background-color: var(--yellow);
+      color: var(--white);
+
+      &:focus, &:hover {
+        background-color: var(--yellow);
+        color: var(--white);
+      }
+    }
+  
+    &.meat {
+      position: relative;
+      text-align: center;
+  
+      span {
+        font-size: var(--font-normal);
+        font-weight: bold;
+        color: var(--red);
+  
+        &::before,  &::after {
+          content: "";
+          position: absolute;
+  
+          background: url('../img/menu.svg')no-repeat;
+  
+          width: 50px;
+          height: 20px;
+        }
+  
+        &::after {
+          background-position: right center;
+        }
+  
+        &::before {
+          background-position: center center;
+  
+          left: 10px;
+          top: 60px;
+        }
+      }
+    }
+  
+    &.chicken {
+      color: var(--red);
+  
+      span {
+        position: relative;
+        font-size: 32px;
+        color: var(--yellow);
+        
+        &::after {
+          content: '!';
+          position: absolute;
+          
+          top: -18px;
+          font-size: var(--font-lg);
+        }
+      }
+    }
+  
+    &.dessert {
+      text-align: end;
+      color: var(--blue);
+      background: url('../img/king.svg')no-repeat 155px 40px;
+      background-color: var(--white);
+
+      span {
+        font-weight: lighter;
+      }
+    }
+  
+    &.follow {
+      span {
+        text-align: end;
+        
+        display: block;
+        color: var(--orange);
+      }
+    }
+
+    &:focus, &:hover {
+      transform:  translateY(-4px) scale(1.03);
+      
+      box-shadow: 0px 10px 20px rgba(89, 41, 28, 0.6);
+      
+      background-color: var(--brown);
+      color: var(--white);
+    }
+    
+  }
+}

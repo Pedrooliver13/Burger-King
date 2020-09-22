@@ -1,0 +1,318 @@
+.section-main {
+  background:  linear-gradient(164.37deg, rgba(239, 225, 218, 0.0001) 16.06%, #EFE1DA 103.19%);
+  z-index: 0;
+  
+  &__container {
+    font-family: var(--font-1);
+    font-weight: bold;
+
+    color: var(--brown);
+    @extend .row;
+    @extend .container;
+  }
+
+  &__content {
+    grid-column: span 5;
+
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-areas:
+      "combo combo"
+      "title title"
+      "price button";
+
+    @include mediaQuery(md) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      flex-direction: column;
+    }
+
+    @include mediaQuery(lg) {
+      grid-column: span 4;
+    }
+
+    .section-main__combo {
+      position: relative;
+      grid-area: combo;
+
+      font-size: var(--font-lg);
+      line-height: var(--line-height-md);
+      color: var(--yellow);
+
+      &::after {
+        content: "";
+        position: absolute;
+        border-top: 2px dashed var(--yellow);
+
+        width: 288px;
+        height: 1px;
+
+        top: 15px;
+        right: 20px;
+
+        @include mediaQuery(xl) {
+          width: 188px;
+        }
+
+        @include mediaQuery(lg) {
+          display: none;
+        }
+      }
+    }
+
+    .section-main__title {
+      position: relative;
+      font-size: 100px;
+      letter-spacing: 2px;
+      grid-area: title;
+
+      @include mediaQuery(xl) {
+        font-size: 80px;
+      }
+
+      @include mediaQuery(lg) {
+        font-size: var(--font-xl);
+      }
+
+      span {
+        display: inline-block;
+
+        width: 50px;
+        height: 14px;
+
+        border-radius: 2px;
+        background: var(--brown);
+
+        top: 20px;
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+
+          width: 50px;
+          height: 14px;
+          border-radius: 2px;
+        }
+
+        &::before {
+          top: 25px;
+          transform: rotate(5deg);
+
+          background: var(--light-green);
+        }
+
+        &::after {
+          transform: rotate(-5deg);
+          bottom: 35px;
+
+          background: var(--red);
+        }
+
+        @include mediaQuery(xl) {
+          width: 40px;
+          height: 10px;
+
+          &::before,
+          &::after {
+            width: 40px;
+            height: 10px;
+          }
+
+          &::before {
+            top: 18px;
+          }
+
+          &::after {
+            bottom: 28px;
+          }
+        }
+        @include mediaQuery(lg) {
+          &::before {
+            top: 5px;
+          }
+
+          &::after {
+            bottom: 24px;
+          }
+        }
+      }
+    }
+
+    .section-main__info {
+      display: flex;
+      align-items: center;
+      justify-items: center;
+
+      flex-wrap: wrap;
+      grid-area: price;
+
+      @include mediaQuery(md) {
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .section-main__price {
+        font-size: var(--font-xl);
+        line-height: var(--line-height-lg);
+        color: var(--yellow);
+      }
+
+      .section-main__description {
+        font-size: var(--font-sm);
+        font-weight: lighter;
+        line-height: var(--line-height-md);
+      }
+    }
+  }
+
+  &__product {
+    position: relative;
+    grid-column: 7/span 6;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 24px;
+
+    @include mediaQuery(lg) {
+      grid-column: 5 / span 4;
+    }
+    @include mediaQuery(md) {
+      grid-column: span 4;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+
+      width: 70%;
+      height: 90vh;
+
+      background-color: var(--yellow);
+      border-radius: 12px;
+
+      bottom: -8px;
+      right: 85px;
+      z-index: 1;
+
+      @include mediaQuery(xl) {
+        right: 65px;
+      }
+
+      @include mediaQuery(md) {
+        width: 90%;
+        height: 60%;
+        right: 16px;
+      }
+    }
+
+    .section-main__images {
+      position: relative;
+      margin: 20px;
+      z-index: 2;
+
+      // images
+      .section-main__imagem0 {
+        width: 15%;
+        margin: 0 auto;
+        top: -5px;
+      }
+      .section-main__imagem1 {
+        position: relative;
+        width: 90%;
+        margin: 0 auto;
+      }
+      .section-main__imagem2 {
+        position: absolute;
+        width: 45%;
+        z-index: -1;
+
+        top: -20px;
+        right: -30px;
+      }
+      .section-main__imagem3 {
+        position: absolute;
+        width: 60%;
+
+        top: -15px;
+        left: -45px;
+
+        z-index: -1;
+      }
+      .section-main__imagem4 {
+        position: absolute;
+        width: 30%;
+
+        bottom: 0;
+        right: 0;
+      }
+    }
+
+    .section-main__calendar {
+      position: relative;
+      z-index: 2;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: var(--white);
+      font-size: var(--font-sm);
+      font-weight: lighter;
+
+      i {
+        font-size: var(--font-normal);
+      }
+
+      &::after,
+      &::before {
+        content: "";
+        position: absolute;
+
+        width: 80px;
+        height: 20px;
+
+        background: url("../img/wave.svg") no-repeat center center / cover;
+
+        @include mediaQuery(xl) {
+          display: none;
+        }
+      }
+
+      &::before {
+        left: 80px;
+      }
+
+      &::after {
+        right: 70px;
+      }
+    }
+  }
+
+  &__button {
+    position: relative;
+    grid-area: button;
+
+    &::after {
+      content: "";
+      position: absolute;
+
+      background: url("../img/arrow.svg") no-repeat center center / cover;
+
+      width: 52px;
+      height: 52px;
+
+      top: -20px;
+      right: -60px;
+
+      @include mediaQuery(lg) {
+        transform: rotate(70deg);
+        top: 20px;
+      }
+    }
+  }
+}
